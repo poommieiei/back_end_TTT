@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 
 var indexRouter = require("./routes/index");
 var authRoute = require("./routes/auth");
+var menuRoute = require("./routes/menu");
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use(cors());
 
 app.use("/api/test", indexRouter);
 app.use("/api/auth",authRoute);
+app.use("/api/menu",menuRoute);
 
 
 app.use(function (req, res, next) {

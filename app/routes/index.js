@@ -36,8 +36,7 @@ router.get('/getAllnews', async (req, res) => {
     
     try {
         let temp = await condb.clientQuery(`SELECT * FROM users.news
-            ORDER BY news_id ASC LIMIT 100`)
-
+                                            ORDER BY news_id ASC LIMIT 100`)
         return res.status(200).json({
             data: temp.rows,
         })
