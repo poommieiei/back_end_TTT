@@ -9,12 +9,12 @@ router.get(`/getMenuById/` , async(req , res) => {
     try {
         let {id} = req.query;
         console.log(id);
-        let data = await condb.clientQuery(`SELECT news_id , news_title FROM users.news where news_id = $1` , [
+        let data = await condb.clientQuery(`SELECT * , news_title FROM users.news where news_id = $1` , [
             id
         ]);
 
         return res.status(200).json({
-            data: data,
+            data: data.rows,
             status: 200,
             message: 'query success',
             dataId: id
